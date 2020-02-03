@@ -33,10 +33,20 @@ function isPalindrome(myString) {
     if (l < 2 ){
         return true
     } else if (myString[l - 1] === myString[0]) {
-        console.log(myString[l-1] , myString[0])
+        console.log(myString[l-1], myString[0])
         return isPalindrome(myString.substring(1, l - 1))
     } else {
         return false
     }
 }
+
+function addUpTo(myArray, index) {
+    if (index) { 
+        console.log( myArray[index] + addUpTo(myArray, --index) )
+        return myArray[index] + addUpTo(myArray, --index)
+    } else {
+        return myArray[index]
+    }
+}
+
 
