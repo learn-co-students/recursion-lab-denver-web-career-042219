@@ -42,10 +42,29 @@ function isPalindrome(myString) {
 
 function addUpTo(myArray, index) {
     if (index) { 
-        console.log( myArray[index] + addUpTo(myArray, --index) )
+        // console.log( myArray[index] + addUpTo(myArray, --index) )
         return myArray[index] + addUpTo(myArray, --index)
     } else {
         return myArray[index]
+    }
+}
+
+function maxOf(myArray) {
+    // console.log(myArray)
+    if (myArray.length === 1) {
+        return myArray[0]
+    } else {
+        return Math.max(myArray.pop(), maxOf(myArray))
+    }
+}
+
+function includesNumber(myArray, myNumber) {
+    if (!myArray.length) {
+        return false
+    } else if (myArray[0] === myNumber) {
+        return true
+    } else {
+        return includesNumber(myArray.slice(1), myNumber)
     }
 }
 
