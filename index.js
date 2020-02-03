@@ -1,7 +1,42 @@
 // Code your solution here!
 
 function printString(myString) {
-    console.log(myString[0], myString[1], myString[2], myString[3], myString[4])
+    console.log(myString[0])
+    if (myString.length > 1) {
+        let mySubString = myString.substring(1, myString.length)
+        printString(mySubString)
+    } else {
+        return true
+    }
+}
+// printString("pizza")
+
+function reverseString(myString) {
+    if (myString === "") {
+        return ""
+    } else {
+        return reverseString(myString.substring(1)) + myString.charAt(0)
+    }
 }
 
-printString("pizza")
+// function isPalindrome(myString) {
+//     if (myString === reverseString(myString)) {
+//         return true
+//     } else {
+//         return false 
+//     }
+// }
+
+function isPalindrome(myString) {
+    let l = myString.length
+
+    if (l < 2 ){
+        return true
+    } else if (myString[l - 1] === myString[0]) {
+        console.log(myString[l-1] , myString[0])
+        return isPalindrome(myString.substring(1, l - 1))
+    } else {
+        return false
+    }
+}
+
